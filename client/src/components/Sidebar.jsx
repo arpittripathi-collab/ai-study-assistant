@@ -15,7 +15,7 @@ export default function Sidebar() {
   };
 
   return (
-    <aside className="glass-card p-5 sidebar-desktop" style={{ minWidth: '240px' }}>
+    <aside className="glass-card p-8 sidebar-desktop" style={{ minWidth: '280px' }}>
       <div className="flex items-center gap-2 mb-4">
         <FiFilter className="text-lg" style={{ color: '#10b981' }} />
         <h2 className="font-semibold text-sm uppercase tracking-wide opacity-70">Subjects</h2>

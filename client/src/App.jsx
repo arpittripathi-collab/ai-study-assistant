@@ -10,11 +10,11 @@ function AppContent() {
   const { activeTab } = useApp();
 
   return (
-    <div className="min-h-screen p-4 md:p-6 lg:p-8">
-      <div className="max-w-7xl mx-auto">
+    <div className="min-h-screen p-6 md:p-8 lg:p-12">
+      <div className="max-w-[1400px] mx-auto">
         <Header />
 
-        <div className="flex gap-6">
+        <div className="flex gap-8 lg:gap-12 mt-8">
           {/* Sidebar */}
           <Sidebar />
 
@@ -22,7 +22,7 @@ function AppContent() {
           <main className="flex-1 min-w-0">
             <TabNav />
 
-            <div className="glass-card p-6 md:p-8">
+            <div className="glass-card p-10 md:p-12 mt-6">
               {activeTab === 'upload' && <UploadNotes />}
               {activeTab === 'quiz' && <QuizGenerator />}
               {activeTab === 'voice' && <VoiceQuestion />}

@@ -5,7 +5,7 @@ export default function Header() {
   const { darkMode, toggleDarkMode } = useApp();
 
   return (
-    <header className="glass-card mb-6 px-6 py-4 flex items-center justify-between">
+    <header className="glass-card mb-10 px-8 py-5 flex items-center justify-between">
       <div className="flex items-center gap-3">
         <div className="w-10 h-10 rounded-xl flex items-center justify-center text-white text-xl"
           style={{ background: 'var(--gradient-primary)' }}>
