@@ -1,20 +1,20 @@
-const express = require('express');
-const { GoogleGenerativeAI } = require('@google/generative-ai');
-const rateLimit = require('express-rate-limit');
-const { protect } = require('../middleware/auth');
-const Note = require('../models/Note');
-const Quiz = require('../models/Quiz');
-const QAHistory = require('../models/QAHistory');
+import express from 'express';
+import { GoogleGenerativeAI } from '@google/generative-ai';
+import rateLimit from 'express-rate-limit';
+import { protect } from '../middleware/auth.js';
+import Note from '../models/Note.js';
+import Quiz from '../models/Quiz.js';
+import QAHistory from '../models/QAHistory.js';
 
 const router = express.Router();
 
 // Rate limiter: 10 requests per day per user
 const aiRateLimiter = rateLimit({
-  windowMs: 24 * 60 * 60 * 1000, // 24 hours
+  windowMs: 24 * 60 * 60 * 1000, 
   max: 10,
+  validate: { trustProxy: false, xForwardedForHeader: false, default: false },
   message: { error: 'You have reached your limit of 10 AI requests per day. Please try again tomorrow.' },
   keyGenerator: (req) => {
-    // We use the authenticated user ID as the key for the rate limiter
     return req.user ? req.user._id.toString() : req.ip;
   }
 });
@@ -144,4 +144,4 @@ Provide a clear, educational answer in markdown format. If the question is about
   }
 });
 
-module.exports = router;
+export default router;

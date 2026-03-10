@@ -1,4 +1,4 @@
-const mongoose = require('mongoose');
+import mongoose from 'mongoose';
 
 const qaHistorySchema = new mongoose.Schema({
   userId: {
@@ -17,4 +17,4 @@ const qaHistorySchema = new mongoose.Schema({
 }, { timestamps: true });
 
 const QAHistory = mongoose.model('QAHistory', qaHistorySchema);
-module.exports = QAHistory;
+export default QAHistory;

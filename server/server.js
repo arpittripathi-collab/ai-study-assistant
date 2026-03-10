@@ -1,15 +1,15 @@
-const express = require('express');
-const cors = require('cors');
-const dotenv = require('dotenv');
-const connectDB = require('./config/db');
+import express from 'express';
+import cors from 'cors';
+import dotenv from 'dotenv';
+import connectDB from './config/db.js';
 
 dotenv.config();
 
 // Connect to MongoDB
 connectDB();
 
-const authRoutes = require('./routes/auth');
-const aiRoutes = require('./routes/ai');
+import authRoutes from './routes/auth.js';
+import aiRoutes from './routes/ai.js';
 
 const app = express();
 const PORT = process.env.PORT || 5000;
