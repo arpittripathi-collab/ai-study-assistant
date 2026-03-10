@@ -1,15 +1,15 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap');
 @import "tailwindcss";
 
-/* ===== Custom Theme Tokens ===== */
+/* ===== Custom Theme Tokens (Emerald & Slate) ===== */
 :root {
-  --gradient-primary: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  --gradient-accent: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
-  --gradient-success: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
-  --gradient-warm: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+  --gradient-primary: linear-gradient(135deg, #10b981 0%, #047857 100%);
+  --gradient-accent: linear-gradient(135deg, #f43f5e 0%, #be123c 100%);
+  --gradient-success: linear-gradient(135deg, #0ea5e9 0%, #0369a1 100%);
+  --gradient-warm: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
   --glass-bg: rgba(255, 255, 255, 0.08);
   --glass-border: rgba(255, 255, 255, 0.12);
-  --shadow-glow: 0 0 40px rgba(102, 126, 234, 0.15);
+  --shadow-glow: 0 0 40px rgba(16, 185, 129, 0.15);
   --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
@@ -25,21 +25,21 @@ html {
 }
 
 body {
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-family: 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif;
   min-height: 100vh;
   transition: background-color 0.4s ease, color 0.4s ease;
 }
 
 /* ===== Light Mode ===== */
 body {
-  background: linear-gradient(135deg, #f5f7fa 0%, #e4e9f2 50%, #f0e6ff 100%);
-  color: #1a1a2e;
+  background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 50%, #e2e8f0 100%);
+  color: #0f172a;
 }
 
 /* ===== Dark Mode ===== */
 body.dark {
-  background: linear-gradient(135deg, #0f0c29 0%, #1a1a3e 50%, #24243e 100%);
-  color: #e4e6eb;
+  background: linear-gradient(135deg, #0f172a 0%, #020617 50%, #000000 100%);
+  color: #f8fafc;
 }
 
 /* ===== Scrollbar Styling ===== */
@@ -52,38 +52,39 @@ body.dark {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: rgba(102, 126, 234, 0.3);
+  background: rgba(16, 185, 129, 0.3);
   border-radius: 3px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: rgba(102, 126, 234, 0.5);
+  background: rgba(16, 185, 129, 0.5);
 }
 
 /* ===== Glass Card Effect ===== */
 .glass-card {
-  background: rgba(255, 255, 255, 0.75);
+  background: rgba(255, 255, 255, 0.7);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
-  border: 1px solid rgba(255, 255, 255, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.4);
   border-radius: 20px;
-  box-shadow: 0 8px 32px rgba(31, 38, 135, 0.08);
+  box-shadow: 0 8px 32px rgba(15, 23, 42, 0.08);
   transition: var(--transition-smooth);
 }
 
 body.dark .glass-card {
-  background: rgba(255, 255, 255, 0.06);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
 }
 
 .glass-card:hover {
   transform: translateY(-2px);
-  box-shadow: 0 12px 40px rgba(31, 38, 135, 0.15);
+  box-shadow: 0 12px 40px rgba(15, 23, 42, 0.12);
 }
 
 body.dark .glass-card:hover {
-  box-shadow: 0 12px 40px rgba(102, 126, 234, 0.15);
+  box-shadow: 0 12px 40px rgba(16, 185, 129, 0.1);
+  border-color: rgba(16, 185, 129, 0.15);
 }
 
 /* ===== Gradient Text ===== */
@@ -124,7 +125,7 @@ body.dark .glass-card:hover {
 
 .btn-primary:hover {
   transform: translateY(-2px);
-  box-shadow: 0 8px 25px rgba(102, 126, 234, 0.35);
+  box-shadow: 0 8px 25px rgba(16, 185, 129, 0.35);
 }
 
 .btn-primary:active {
@@ -138,9 +139,9 @@ body.dark .glass-card:hover {
 }
 
 .btn-secondary {
-  background: rgba(102, 126, 234, 0.1);
-  color: #667eea;
-  border: 1px solid rgba(102, 126, 234, 0.2);
+  background: rgba(16, 185, 129, 0.1);
+  color: #059669;
+  border: 1px solid rgba(16, 185, 129, 0.2);
   padding: 10px 22px;
   border-radius: 12px;
   font-weight: 500;
@@ -149,13 +150,13 @@ body.dark .glass-card:hover {
 }
 
 body.dark .btn-secondary {
-  background: rgba(102, 126, 234, 0.15);
-  color: #a0b0ff;
-  border-color: rgba(102, 126, 234, 0.3);
+  background: rgba(16, 185, 129, 0.15);
+  color: #34d399;
+  border-color: rgba(16, 185, 129, 0.3);
 }
 
 .btn-secondary:hover {
-  background: rgba(102, 126, 234, 0.2);
+  background: rgba(16, 185, 129, 0.2);
   transform: translateY(-1px);
 }
 
@@ -204,9 +205,9 @@ body.dark .btn-secondary {
 
 .shimmer {
   background: linear-gradient(90deg, 
-    rgba(102, 126, 234, 0.05) 25%, 
-    rgba(102, 126, 234, 0.15) 50%, 
-    rgba(102, 126, 234, 0.05) 75%
+    rgba(16, 185, 129, 0.05) 25%, 
+    rgba(16, 185, 129, 0.15) 50%, 
+    rgba(16, 185, 129, 0.05) 75%
   );
   background-size: 200% 100%;
   animation: shimmer 1.5s ease-in-out infinite;
@@ -218,33 +219,33 @@ body.dark .btn-secondary {
   position: relative;
   padding: 12px 24px;
   font-weight: 500;
-  color: #6b7280;
+  color: #64748b;
   border: none;
   background: none;
   cursor: pointer;
   transition: var(--transition-smooth);
   border-radius: 12px;
-  font-size: 0.92rem;
+  font-size: 0.95rem;
 }
 
 body.dark .tab-btn {
-  color: #9ca3af;
+  color: #94a3b8;
 }
 
 .tab-btn:hover {
-  color: #667eea;
-  background: rgba(102, 126, 234, 0.08);
+  color: #059669;
+  background: rgba(16, 185, 129, 0.08);
 }
 
 .tab-btn.active {
-  color: #667eea;
-  background: rgba(102, 126, 234, 0.12);
+  color: #047857;
+  background: rgba(16, 185, 129, 0.12);
   font-weight: 600;
 }
 
 body.dark .tab-btn.active {
-  color: #a0b0ff;
-  background: rgba(102, 126, 234, 0.2);
+  color: #34d399;
+  background: rgba(16, 185, 129, 0.2);
 }
 
 /* ===== Subject Tags ===== */
@@ -252,9 +253,9 @@ body.dark .tab-btn.active {
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  padding: 6px 14px;
+  padding: 8px 16px;
   border-radius: 20px;
-  font-size: 0.82rem;
+  font-size: 0.85rem;
   font-weight: 500;
   cursor: pointer;
   transition: var(--transition-smooth);
@@ -264,88 +265,96 @@ body.dark .tab-btn.active {
 .subject-tag.active {
   background: var(--gradient-primary);
   color: white;
-  box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+  box-shadow: 0 4px 15px rgba(16, 185, 129, 0.3);
 }
 
 .subject-tag:not(.active) {
-  background: rgba(102, 126, 234, 0.08);
-  color: #667eea;
-  border-color: rgba(102, 126, 234, 0.15);
+  background: rgba(16, 185, 129, 0.05);
+  color: #059669;
+  border-color: rgba(16, 185, 129, 0.15);
 }
 
 body.dark .subject-tag:not(.active) {
-  background: rgba(102, 126, 234, 0.12);
-  color: #a0b0ff;
-  border-color: rgba(102, 126, 234, 0.2);
+  background: rgba(16, 185, 129, 0.08);
+  color: #34d399;
+  border-color: rgba(16, 185, 129, 0.2);
 }
 
 .subject-tag:hover:not(.active) {
-  background: rgba(102, 126, 234, 0.18);
+  background: rgba(16, 185, 129, 0.15);
   transform: translateY(-1px);
 }
 
 /* ===== File Upload Area ===== */
 .upload-zone {
-  border: 2px dashed rgba(102, 126, 234, 0.25);
+  border: 2px dashed rgba(16, 185, 129, 0.3);
   border-radius: 20px;
   padding: 40px;
   text-align: center;
   cursor: pointer;
   transition: var(--transition-smooth);
-  background: rgba(102, 126, 234, 0.03);
+  background: rgba(16, 185, 129, 0.02);
 }
 
 .upload-zone:hover, .upload-zone.dragging {
-  border-color: #667eea;
-  background: rgba(102, 126, 234, 0.08);
+  border-color: #10b981;
+  background: rgba(16, 185, 129, 0.06);
   transform: scale(1.01);
 }
 
 body.dark .upload-zone {
-  border-color: rgba(102, 126, 234, 0.2);
-  background: rgba(102, 126, 234, 0.04);
+  border-color: rgba(16, 185, 129, 0.2);
+  background: rgba(16, 185, 129, 0.03);
 }
 
 /* ===== Quiz Option Styles ===== */
 .quiz-option {
   padding: 14px 20px;
-  border: 2px solid rgba(102, 126, 234, 0.15);
+  border: 2px solid rgba(16, 185, 129, 0.1);
   border-radius: 14px;
   cursor: pointer;
   transition: var(--transition-smooth);
   font-weight: 500;
-  font-size: 0.92rem;
+  font-size: 0.95rem;
+}
+
+body.dark .quiz-option {
+  border-color: rgba(255, 255, 255, 0.05);
 }
 
 .quiz-option:hover:not(.selected):not(.correct):not(.wrong) {
-  border-color: #667eea;
-  background: rgba(102, 126, 234, 0.06);
+  border-color: #10b981;
+  background: rgba(16, 185, 129, 0.04);
   transform: translateX(4px);
 }
 
 .quiz-option.selected {
-  border-color: #667eea;
-  background: rgba(102, 126, 234, 0.1);
+  border-color: #10b981;
+  background: rgba(16, 185, 129, 0.08);
+}
+
+body.dark .quiz-option.selected {
+  background: rgba(16, 185, 129, 0.15);
 }
 
 .quiz-option.correct {
-  border-color: #10b981;
-  background: rgba(16, 185, 129, 0.1);
-  color: #059669;
+  border-color: #0ea5e9;
+  background: rgba(14, 165, 233, 0.1);
+  color: #0284c7;
 }
 
 body.dark .quiz-option.correct {
-  color: #34d399;
+  color: #38bdf8;
 }
 
 .quiz-option.wrong {
-  border-color: #ef4444;
-  background: rgba(239, 68, 68, 0.1);
-  color: #dc2626;
+  border-color: #f43f5e;
+  background: rgba(244, 63, 94, 0.1);
+  color: #e11d48;
 }
 
 body.dark .quiz-option.wrong {
-  color: #f87171;
+  color: #fb7185;
 }
 
 /* ===== Markdown Content Styling ===== */
@@ -357,23 +366,30 @@ body.dark .quiz-option.wrong {
 .markdown-content li { margin-bottom: 6px; line-height: 1.6; }
 .markdown-content strong { font-weight: 600; }
 .markdown-content code {
-  background: rgba(102, 126, 234, 0.1);
+  background: rgba(16, 185, 129, 0.1);
   padding: 2px 6px;
   border-radius: 4px;
   font-size: 0.88em;
+  color: #047857;
+}
+body.dark .markdown-content code {
+  background: rgba(16, 185, 129, 0.2);
+  color: #6ee7b7;
 }
 .markdown-content pre {
-  background: rgba(0, 0, 0, 0.05);
+  background: rgba(15, 23, 42, 0.05);
   padding: 16px;
   border-radius: 12px;
   overflow-x: auto;
   margin-bottom: 12px;
 }
 body.dark .markdown-content pre {
-  background: rgba(255, 255, 255, 0.05);
+  background: rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.05);
 }
-body.dark .markdown-content code {
-  background: rgba(102, 126, 234, 0.15);
+body.dark .markdown-content pre code {
+  background: transparent;
+  color: inherit;
 }
 
 /* ===== Voice Mic Button ===== */
@@ -390,17 +406,17 @@ body.dark .markdown-content code {
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 8px 30px rgba(102, 126, 234, 0.3);
+  box-shadow: 0 8px 30px rgba(16, 185, 129, 0.3);
 }
 
 .mic-btn:hover {
   transform: scale(1.08);
-  box-shadow: 0 12px 40px rgba(102, 126, 234, 0.45);
+  box-shadow: 0 12px 40px rgba(16, 185, 129, 0.45);
 }
 
 .mic-btn.recording {
   background: var(--gradient-accent);
-  box-shadow: 0 8px 30px rgba(245, 87, 108, 0.4);
+  box-shadow: 0 8px 30px rgba(244, 63, 94, 0.4);
 }
 
 /* ===== Score Card ===== */

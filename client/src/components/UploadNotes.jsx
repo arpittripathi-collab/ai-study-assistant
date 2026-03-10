@@ -67,8 +67,8 @@ export default function UploadNotes() {
           onChange={(e) => setSelectedSubject(e.target.value)}
           className="px-4 py-2.5 rounded-xl text-sm outline-none cursor-pointer transition-all duration-200"
           style={{
-            background: 'rgba(102, 126, 234, 0.08)',
-            border: '1px solid rgba(102, 126, 234, 0.15)',
+            background: 'rgba(16, 185, 129, 0.08)',
+            border: '1px solid rgba(16, 185, 129, 0.15)',
           }}
         >
           {subjects.map((s) => (
@@ -94,7 +94,7 @@ export default function UploadNotes() {
           onChange={(e) => handleFile(e.target.files?.[0])}
         />
         <div className="animate-float">
-          <FiUploadCloud className="mx-auto text-4xl mb-3" style={{ color: '#667eea' }} />
+          <FiUploadCloud className="mx-auto text-4xl mb-3" style={{ color: '#10b981' }} />
         </div>
         <p className="font-semibold mb-1">
           {fileName ? (
@@ -117,8 +117,8 @@ export default function UploadNotes() {
         rows={6}
         className="w-full px-5 py-4 rounded-2xl text-sm outline-none resize-none transition-all duration-200"
         style={{
-          background: 'rgba(102, 126, 234, 0.04)',
-          border: '1px solid rgba(102, 126, 234, 0.12)',
+          background: 'rgba(16, 185, 129, 0.04)',
+          border: '1px solid rgba(16, 185, 129, 0.12)',
         }}
       />
 

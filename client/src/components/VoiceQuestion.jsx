@@ -157,8 +157,8 @@ export default function VoiceQuestion() {
           placeholder="Type your question here..."
           className="flex-1 px-5 py-3.5 rounded-2xl text-sm outline-none transition-all duration-200"
           style={{
-            background: 'rgba(102, 126, 234, 0.06)',
-            border: '1px solid rgba(102, 126, 234, 0.12)',
+            background: 'rgba(16, 185, 129, 0.06)',
+            border: '1px solid rgba(16, 185, 129, 0.12)',
           }}
         />
         <button

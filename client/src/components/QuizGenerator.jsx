@@ -91,8 +91,8 @@ export default function QuizGenerator() {
               onChange={(e) => setQuestionCount(Number(e.target.value))}
               className="px-4 py-2.5 rounded-xl text-sm outline-none cursor-pointer"
               style={{
-                background: 'rgba(102, 126, 234, 0.08)',
-                border: '1px solid rgba(102, 126, 234, 0.15)',
+                background: 'rgba(16, 185, 129, 0.08)',
+                border: '1px solid rgba(16, 185, 129, 0.15)',
               }}
             >
               {[3, 5, 8, 10].map(n => (
@@ -121,7 +121,7 @@ export default function QuizGenerator() {
           {/* Progress */}
           {!showResults && (
             <div className="flex items-center gap-3 mb-4">
-              <div className="flex-1 h-2 rounded-full overflow-hidden" style={{ background: 'rgba(102, 126, 234, 0.1)' }}>
+              <div className="flex-1 h-2 rounded-full overflow-hidden" style={{ background: 'rgba(16, 185, 129, 0.1)' }}>
                 <div
                   className="h-full rounded-full transition-all duration-500"
                   style={{
@@ -179,8 +179,8 @@ export default function QuizGenerator() {
                   >
                     <span className="w-6 h-6 rounded-full border-2 flex items-center justify-center text-xs flex-shrink-0"
                       style={{
-                        borderColor: selectedAnswers[qIndex] === optIndex ? '#667eea' : 'rgba(102, 126, 234, 0.2)',
-                        background: selectedAnswers[qIndex] === optIndex ? 'rgba(102, 126, 234, 0.1)' : 'transparent',
+                        borderColor: selectedAnswers[qIndex] === optIndex ? '#10b981' : 'rgba(16, 185, 129, 0.2)',
+                        background: selectedAnswers[qIndex] === optIndex ? 'rgba(16, 185, 129, 0.1)' : 'transparent',
                       }}
                     >
                       {showResults && optIndex === q.correct && <FiCheckCircle className="text-green-500" />}
@@ -193,8 +193,8 @@ export default function QuizGenerator() {
               </div>
               {showResults && q.explanation && (
                 <div className="mt-3 p-3 rounded-xl text-sm" style={{
-                  background: 'rgba(102, 126, 234, 0.06)',
-                  borderLeft: '3px solid #667eea',
+                  background: 'rgba(16, 185, 129, 0.06)',
+                  borderLeft: '3px solid #10b981',
                 }}>
                   💡 {q.explanation}
                 </div>
