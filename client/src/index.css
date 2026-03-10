@@ -78,13 +78,14 @@ body.dark .glass-card {
 }
 
 .glass-card:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 12px 40px rgba(15, 23, 42, 0.12);
+  transform: translateY(-4px) scale(1.01);
+  box-shadow: 0 16px 50px rgba(15, 23, 42, 0.15);
 }
 
 body.dark .glass-card:hover {
-  box-shadow: 0 12px 40px rgba(16, 185, 129, 0.1);
-  border-color: rgba(16, 185, 129, 0.15);
+  transform: translateY(-4px) scale(1.01);
+  box-shadow: 0 16px 50px rgba(16, 185, 129, 0.12);
+  border-color: rgba(16, 185, 129, 0.25);
 }
 
 /* ===== Gradient Text ===== */
@@ -124,12 +125,12 @@ body.dark .glass-card:hover {
 }
 
 .btn-primary:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 8px 25px rgba(16, 185, 129, 0.35);
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: 0 12px 30px rgba(16, 185, 129, 0.45);
 }
 
 .btn-primary:active {
-  transform: translateY(0);
+  transform: translateY(1px) scale(0.98);
 }
 
 .btn-primary:disabled {
@@ -156,8 +157,9 @@ body.dark .btn-secondary {
 }
 
 .btn-secondary:hover {
-  background: rgba(16, 185, 129, 0.2);
-  transform: translateY(-1px);
+  background: rgba(16, 185, 129, 0.25);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(16, 185, 129, 0.15);
 }
 
 /* ===== Pulse Animation for Recording ===== */
@@ -234,7 +236,8 @@ body.dark .tab-btn {
 
 .tab-btn:hover {
   color: #059669;
-  background: rgba(16, 185, 129, 0.08);
+  background: rgba(16, 185, 129, 0.1);
+  transform: translateY(-2px);
 }
 
 .tab-btn.active {
@@ -265,7 +268,8 @@ body.dark .tab-btn.active {
 .subject-tag.active {
   background: var(--gradient-primary);
   color: white;
-  box-shadow: 0 4px 15px rgba(16, 185, 129, 0.3);
+  box-shadow: 0 6px 20px rgba(16, 185, 129, 0.4);
+  transform: scale(1.05);
 }
 
 .subject-tag:not(.active) {
@@ -281,8 +285,8 @@ body.dark .subject-tag:not(.active) {
 }
 
 .subject-tag:hover:not(.active) {
-  background: rgba(16, 185, 129, 0.15);
-  transform: translateY(-1px);
+  background: rgba(16, 185, 129, 0.2);
+  transform: translateY(-2px) scale(1.02);
 }
 
 /* ===== File Upload Area ===== */
@@ -298,8 +302,9 @@ body.dark .subject-tag:not(.active) {
 
 .upload-zone:hover, .upload-zone.dragging {
   border-color: #10b981;
-  background: rgba(16, 185, 129, 0.06);
-  transform: scale(1.01);
+  background: rgba(16, 185, 129, 0.08);
+  transform: scale(1.02);
+  box-shadow: 0 10px 30px rgba(16, 185, 129, 0.1);
 }
 
 body.dark .upload-zone {
@@ -324,13 +329,16 @@ body.dark .quiz-option {
 
 .quiz-option:hover:not(.selected):not(.correct):not(.wrong) {
   border-color: #10b981;
-  background: rgba(16, 185, 129, 0.04);
-  transform: translateX(4px);
+  background: rgba(16, 185, 129, 0.06);
+  transform: translateX(8px);
+  box-shadow: 0 4px 15px rgba(16, 185, 129, 0.08);
 }
 
 .quiz-option.selected {
   border-color: #10b981;
-  background: rgba(16, 185, 129, 0.08);
+  background: rgba(16, 185, 129, 0.1);
+  transform: translateX(8px);
+  box-shadow: 0 6px 20px rgba(16, 185, 129, 0.15);
 }
 
 body.dark .quiz-option.selected {
