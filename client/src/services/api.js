@@ -8,6 +8,20 @@ const api = axios.create({
   timeout: 60000, // 60 seconds for AI responses
 });
 
+// Request interceptor to add the auth token header
+api.interceptors.request.use(
+  (config) => {
+    const token = localStorage.getItem('study_token');
+    if (token) {
+      config.headers.Authorization = `Bearer ${token}`;
+    }
+    return config;
+  },
+  (error) => {
+    return Promise.reject(error);
+  }
+);
+
 export const summarizeNotes = async (text) => {
   const response = await api.post('/summarize', { text });
   return response.data.summary;

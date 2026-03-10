@@ -1,7 +1,23 @@
 const express = require('express');
 const { GoogleGenerativeAI } = require('@google/generative-ai');
+const rateLimit = require('express-rate-limit');
+const { protect } = require('../middleware/auth');
+const Note = require('../models/Note');
+const Quiz = require('../models/Quiz');
+const QAHistory = require('../models/QAHistory');
 
 const router = express.Router();
+
+// Rate limiter: 10 requests per day per user
+const aiRateLimiter = rateLimit({
+  windowMs: 24 * 60 * 60 * 1000, // 24 hours
+  max: 10,
+  message: { error: 'You have reached your limit of 10 AI requests per day. Please try again tomorrow.' },
+  keyGenerator: (req) => {
+    // We use the authenticated user ID as the key for the rate limiter
+    return req.user ? req.user._id.toString() : req.ip;
+  }
+});
 
 function getModel() {
   const apiKey = process.env.GEMINI_API_KEY;
@@ -13,7 +29,7 @@ function getModel() {
 }
 
 // POST /api/summarize
-router.post('/summarize', async (req, res) => {
+router.post('/summarize', protect, aiRateLimiter, async (req, res) => {
   try {
     const { text } = req.body;
     if (!text || text.trim().length === 0) {
@@ -33,7 +49,14 @@ ${text}`;
     const result = await model.generateContent(prompt);
     const summary = result.response.text();
 
-    res.json({ summary });
+    // Save to Database
+    const newNote = await Note.create({
+      userId: req.user._id,
+      fileName: 'Pasted Text / Uploaded Document', // Default name
+      summary: summary
+    });
+
+    res.json({ summary, noteId: newNote._id });
   } catch (error) {
     console.error('Summarize error:', error);
     res.status(500).json({ error: error.message });
@@ -41,7 +64,7 @@ ${text}`;
 });
 
 // POST /api/quiz
-router.post('/quiz', async (req, res) => {
+router.post('/quiz', protect, aiRateLimiter, async (req, res) => {
   try {
     const { text, subject, questionCount = 5 } = req.body;
     if (!text || text.trim().length === 0) {
@@ -73,8 +96,16 @@ ${text}`;
     // Clean up potential markdown code blocks
     responseText = responseText.replace(/```json\n?/g, '').replace(/```\n?/g, '').trim();
     
-    const quiz = JSON.parse(responseText);
-    res.json({ quiz });
+    const quizData = JSON.parse(responseText);
+    
+    // Save to Database
+    const savedQuiz = await Quiz.create({
+      userId: req.user._id,
+      subject: subject || 'General',
+      questions: quizData
+    });
+
+    res.json({ quiz: quizData, quizId: savedQuiz._id });
   } catch (error) {
     console.error('Quiz generation error:', error);
     res.status(500).json({ error: error.message });
@@ -82,7 +113,7 @@ ${text}`;
 });
 
 // POST /api/ask
-router.post('/ask', async (req, res) => {
+router.post('/ask', protect, aiRateLimiter, async (req, res) => {
   try {
     const { question, context } = req.body;
     if (!question || question.trim().length === 0) {
@@ -99,7 +130,14 @@ Provide a clear, educational answer in markdown format. If the question is about
     const result = await model.generateContent(prompt);
     const answer = result.response.text();
 
-    res.json({ answer });
+    // Save to Database
+    const savedQA = await QAHistory.create({
+      userId: req.user._id,
+      question: question,
+      answer: answer
+    });
+
+    res.json({ answer, historyId: savedQA._id });
   } catch (error) {
     console.error('Ask error:', error);
     res.status(500).json({ error: error.message });

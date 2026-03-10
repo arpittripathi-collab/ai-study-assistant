@@ -1,4 +1,6 @@
 import { AppProvider, useApp } from './context/AppContext';
+import { AuthProvider, useAuth } from './context/AuthContext';
+import AuthScreen from './components/AuthScreen';
 import Header from './components/Header';
 import Sidebar from './components/Sidebar';
 import TabNav from './components/TabNav';
@@ -8,6 +10,19 @@ import VoiceQuestion from './components/VoiceQuestion';
 
 function AppContent() {
   const { activeTab } = useApp();
+  const { user, loading } = useAuth();
+
+  if (loading) {
+    return (
+      <div className="min-h-screen flex items-center justify-center p-6 bg-gradient-to-br from-slate-50 to-slate-200 dark:from-slate-900 dark:to-black">
+        <div className="w-12 h-12 border-4 border-emerald-500 border-t-transparent rounded-full animate-spin"></div>
+      </div>
+    );
+  }
+
+  if (!user) {
+    return <AuthScreen />;
+  }
 
   return (
     <div className="min-h-screen p-6 md:p-8 lg:p-12">
@@ -41,8 +56,10 @@ function AppContent() {
 
 export default function App() {
   return (
-    <AppProvider>
-      <AppContent />
-    </AppProvider>
+    <AuthProvider>
+      <AppProvider>
+        <AppContent />
+      </AppProvider>
+    </AuthProvider>
   );
 }
